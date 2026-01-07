@@ -1,0 +1,76 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "name": "BrowserPlay – Build by NOOBGLITCH",
+  "short_name": "BrowserPlay",
+  "description": "Lightweight Progressive Web App for watching live TV channels with a smooth, fullscreen experience.",
+  "id": "/",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#000000",
+  "theme_color": "#69dc9e",
+  "categories": ["entertainment", "video", "tv"],
+  "iarc_rating_id": "",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshot1.png",
+      "type": "image/png",
+      "sizes": "540x720",
+      "form_factor": "narrow",
+      "label": "Mobile Home Screen"
+    },
+    {
+      "src": "/images/screenshot2.jpg",
+      "type": "image/jpg",
+      "sizes": "720x540",
+      "form_factor": "wide",
+      "label": "Desktop Home Screen"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Favorites",
+      "url": "/?view=fav",
+      "description": "View your favorite channels",
+      "icons": [{ "src": "/icons/icon-96x96.png", "sizes": "96x96" }]
+    }
+  ],
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "share_target": {
+    "action": "/share",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "note_taking": {
+    "new_note_url": "/?action=new-note"
+  },
+  "widgets": [],
+  "file_handlers": [],
+  "protocol_handlers": [],
+  "scope_extensions": [],
+  "prefer_related_applications": false,
+  "related_applications": []
+}
