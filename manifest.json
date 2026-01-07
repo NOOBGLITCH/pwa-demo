@@ -1,9 +1,9 @@
 {
   "lang": "en",
   "dir": "ltr",
-  "name": "BrowserPlay – Build by NOOBGLITCH",
-  "short_name": "BrowserPlay",
-  "description": "Lightweight Progressive Web App for watching live TV channels with a smooth, fullscreen experience.",
+  "name": "PWA-DEMO",
+  "short_name": "PWA-DEMO",
+  "description": "Lightweight Progressive Web App.",
   "id": "/",
   "start_url": "/?source=pwa",
   "scope": "/",
