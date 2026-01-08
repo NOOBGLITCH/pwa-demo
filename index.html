@@ -1,102 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PWA Boilerplate</title>
-    <link rel="manifest" href="manifest.json">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <link rel="manifest" href="manifest.json" />
     <style>
-        /* Base Styles */
-        body {
-            background-color: #0f172a;
-            color: #ffffff;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            text-align: center;
-        }
+      /* Base Styles */
+      body {
+        background-color: #0f172a;
+        color: #ffffff;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        text-align: center;
+      }
 
-        .container {
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            background: rgba(30, 41, 59, 0.5);
-            max-width: 320px;
-            width: 90%;
-        }
+      .container {
+        padding: 2rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        background: rgba(30, 41, 59, 0.5);
+        max-width: 340px;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-        .icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            margin-bottom: 1.5rem;
-        }
+      .icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 20px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      }
 
-        h1 { margin: 0 0 0.5rem 0; font-size: 1.5rem; }
-        p { color: #94a3b8; font-size: 0.875rem; margin-bottom: 2rem; }
+      h1 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.5rem;
+      }
+      p {
+        color: #94a3b8;
+        font-size: 0.875rem;
+        margin-bottom: 1.5rem;
+      }
 
-        /* Install Button */
-        #installBtn {
-            background: #6366f1;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            font-size: 1rem;
-            transition: opacity 0.2s;
-        }
+      /* Main Action Buttons */
+      .button-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        margin-bottom: 2rem;
+      }
 
-        #installBtn:active { opacity: 0.8; }
-        .hidden { display: none; }
+      #installBtn {
+        background: #6366f1;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
+        font-size: 1rem;
+        transition: transform 0.1s, background 0.2s;
+      }
+
+      #installBtn:hover {
+        background: #4f46e5;
+      }
+      #installBtn:active {
+        transform: scale(0.98);
+      }
+
+      /* Social/Follow Section */
+      .social-footer {
+        width: 100%;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hidden {
+        display: none !important;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <div class="container">
-        <img src="image.png" alt="App Icon" class="icon">
-        <h1>PWA Demo</h1>
-        <p>Install this app to your home screen for the full experience.</p>
+      <img src="image.png" alt="App Icon" class="icon" />
+      <h1>PWA Demo</h1>
+      <p>Install this app to your home screen for the full experience.</p>
 
+      <div class="button-group">
         <button id="installBtn">Install App</button>
+
+        <a
+          class="github-button"
+          href="https://github.com/NOOBGLITCH/pwa-demo"
+          data-color-scheme="no-preference: dark; light: dark; dark: dark_dimmed;"
+          data-size="large"
+          data-show-count="true"
+          aria-label="Watch NOOBGLITCH/pwa-demo on GitHub"
+          >source code</a
+        >
+      </div>
+
+      <div class="social-footer">
+        <a
+          class="github-button"
+          href="https://github.com/NOOBGLITCH"
+          data-color-scheme="no-preference: dark; light: dark; dark: dark_dimmed;"
+          data-size="large"
+          data-show-count="true"
+          aria-label="Follow @NOOBGLITCH on GitHub"
+          >Follow @NOOBGLITCH</a
+        >
+      </div>
     </div>
 
     <script>
-        let deferredPrompt;
-        const installBtn = document.getElementById('installBtn');
+      let deferredPrompt;
+      const installBtn = document.getElementById("installBtn");
 
-        // Register Service Worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('service-worker.js');
-            });
+      // Register Service Worker
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("service-worker.js");
+        });
+      }
+
+      // Catch the install prompt
+      window.addEventListener("beforeinstallprompt", (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+      });
+
+      installBtn.addEventListener("click", async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          if (outcome === "accepted") deferredPrompt = null;
+        } else {
+          alert(
+            "Installation is handled by your browser. Look for the 'Install' icon in the address bar or menu."
+          );
         }
+      });
 
-        // Catch the install prompt
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            console.log('PWA ready to install');
-        });
-
-        installBtn.addEventListener('click', async () => {
-            if (deferredPrompt) {
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                if (outcome === 'accepted') deferredPrompt = null;
-            } else {
-                alert("Chrome hasn't triggered the install prompt yet. Please wait or check your browser menu.");
-            }
-        });
-
-        window.addEventListener('appinstalled', () => {
-            installBtn.classList.add('hidden');
-        });
+      window.addEventListener("appinstalled", () => {
+        installBtn.classList.add("hidden");
+      });
     </script>
-</body>
+  </body>
 </html>
